@@ -35,7 +35,7 @@ else{
 }
 */
 
-//Create a table in db
+/*Create a table in db
 $sql = "CREATE TABLE `table` (`Sno` INT(11) NOT NULL , `Name` VARCHAR(11) NOT NULL , `Age` INT(11) NOT NULL , `Gender` VARCHAR(11) NOT NULL )";
 $result = mysqli_query($conn , $sql);
 
@@ -45,5 +45,18 @@ if($result){
 }
 else{
     echo "The table was not created successfully because of this error --> " . mysqli_error($conn);
+}
+*/
+
+//Sql query to be executed
+$sql = "INSERT INTO `table` (`Sno`, `Name`, `Age`, `Gender`) VALUES ('4', 'Akanksha', '20', 'Female')";
+$result = mysqli_query($conn , $sql);
+
+//Add a new record in table in the db
+if($result){
+    echo "The record has been inserted successfully";
+}
+else{
+    echo "The record has not been inserted successfully because of this error --> " . mysqli_error($conn);
 }
 ?>
