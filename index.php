@@ -1,5 +1,5 @@
 <?php
-echo " welcome to the stage where we are ready to get connected to a database<br>";
+//echo " welcome to the stage where we are ready to get connected to a database<br>";
 /*ways to connect to a MySQL database
 1. MYSQLi extension
 2. PDO
@@ -8,9 +8,10 @@ echo " welcome to the stage where we are ready to get connected to a database<br
 $servername = "localhost";
 $username = "root";
 $password = "";
+$database = "dbanu";
 
 //Create a connection
-$conn = mysqli_connect($servername,$username,$password);
+$conn = mysqli_connect($servername,$username,$password,$database);
 
 //Die if connection was not successfull
 if(!$conn){
@@ -21,8 +22,8 @@ else{
     echo "<br>";
 }
 
-//Create a database
-$sql  = "CREATE DATABASE dbanu4";
+/*Create a database
+$sql  = "CREATE DATABASE dbanu3";
 $result = mysqli_query($conn , $sql);
 
 //Check for the database creation success
@@ -30,6 +31,19 @@ if($result){
     echo "The db was created successfully";
 }
 else{
-    echo "The db was not created successfully because of this error --> " . mysqli_error($conn);
+    echo "The db was not created successfully because of this error --> " . mysqli_connect_error($conn);
+}
+*/
+
+//Create a table in db
+$sql = "CREATE TABLE `table` (`Sno` INT(11) NOT NULL , `Name` VARCHAR(11) NOT NULL , `Age` INT(11) NOT NULL , `Gender` VARCHAR(11) NOT NULL )";
+$result = mysqli_query($conn , $sql);
+
+//Check for table creation success
+if($result){
+    echo "The table was created successfully";
+}
+else{
+    echo "The table was not created successfully because of this error --> " . mysqli_error($conn);
 }
 ?>
